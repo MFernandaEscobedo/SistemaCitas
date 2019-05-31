@@ -1,33 +1,27 @@
-<div class="container m-5">
-
-<form>
-  <div class="form-group">
-    <label for="inputDirreccion">Dirección</label>
-    <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+<div class="container animated fadeIn contenedor-formulario">
+  <div class="wrap">
+    <h3 class=" text-center">Estación</h3>
+    <form class="formulario">
+      <div class="form-group">
+        <label for="inputDirreccion">Dirección</label>
+        <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+      </div>
+      <div class="form-group">
+        <label for="inputTelefono">Teléfono</label>
+        <input type="tel" class="form-control" id="inputTelefono" placeholder="Teléfono">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputCity">Hora de apertura</label>
+          <input type="time" class="form-control" id="inputHoraApertura">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Hora de clausura</label>
+          <input type="time" class="form-control" id="inputHoraClausura">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
   </div>
-  <div class="form-group col-md-4">
-    <label for="inputTelefono">Teléfono</label>
-    <input type="tel" class="form-control" id="inputTelefono" placeholder="Teléfono">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputCity">Hora de apertura</label>
-      <input type="time" class="form-control" id="inputHoraApertura">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">Hora de clausura</label>
-      <input type="time" class="form-control" id="inputHoraClausura">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Agregar</button>
-</form>
 
 </div>

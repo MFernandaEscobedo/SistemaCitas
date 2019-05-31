@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 // Services
 import { BaseService } from './services/base.service';
 
-import { HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StationComponent } from './components/station/station.component';
