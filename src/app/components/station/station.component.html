@@ -4,23 +4,69 @@
     <form class="formulario">
       <div class="form-group">
         <label for="inputDirreccion">Dirección</label>
-        <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+        <input [(ngModel)]="nuevaEstacion.address" type="text" class="form-control" name="direccion" id="inputDireccion" placeholder="Dirección">
       </div>
       <div class="form-group">
         <label for="inputTelefono">Teléfono</label>
-        <input type="tel" class="form-control" id="inputTelefono" placeholder="Teléfono">
+        <input [(ngModel)]="nuevaEstacion.phone" type="tel" class="form-control" name="telefono" id="inputTelefono" placeholder="Teléfono">
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="inputCity">Hora de apertura</label>
-          <input type="time" class="form-control" id="inputHoraApertura">
+          <label for="inputHoraApertura">Hora de apertura</label>
+          <input [(ngModel)]="nuevaEstacion.openHour" type="number" name="horaApertura" class="form-control" id="inputHoraApertura">
         </div>
         <div class="form-group col-md-4">
-          <label for="inputState">Hora de clausura</label>
-          <input type="time" class="form-control" id="inputHoraClausura">
+          <label for="inputHoraClausura">Hora de clausura</label>
+          <input [(ngModel)]="nuevaEstacion.closeHour" type="number" name="HoraClausura" class="form-control" id="inputHoraClausura">
+        </div>
+        <div class="form-check-inline">
+          <div class="form-group-check">
+            <div class="form-check">
+              <input [(ngModel)]="nuevaEstacion.monday" class="form-check-input" name="monday" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Lunes
+              </label>
+            </div>
+            <div class="form-check">
+              <input [(ngModel)]="nuevaEstacion.tuesday" class="form-check-input" name="tuesday" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Martes
+              </label>
+            </div>
+            <div class="form-check">
+              <input [(ngModel)]="nuevaEstacion.wednesday" class="form-check-input" name="wednesday" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Miercoles
+              </label>
+            </div>
+            <div class="form-check">
+              <input [(ngModel)]="nuevaEstacion.thursday" class="form-check-input" name="thursday" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Jueves
+              </label>
+            </div>
+            <div class="form-check">
+              <input [(ngModel)]="nuevaEstacion.friday" class="form-check-input" name="friday" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Viernes
+              </label>
+            </div>
+            <div class="form-check">
+              <input [(ngModel)]="nuevaEstacion.saturday" class="form-check-input" name="saturday" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Sábado
+              </label>
+            </div>
+            <div class="form-check">
+              <input [(ngModel)]="nuevaEstacion.sunday" class="form-check-input" name="sunday" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Domingo
+              </label>
+            </div>
+          </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Agregar</button>
+      <button (click)="agregarEstacion()" type="submit" class="btn btn-primary">Agregar</button>
     </form>
   </div>
 

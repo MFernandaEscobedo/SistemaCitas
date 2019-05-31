@@ -3,21 +3,32 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   background: #f2f2f2;
   font-family: "Roboto";
   border-top: 30px solid #303F9F; }
 
-h3{
+  h3{
+    color: #303F9F;
+    margin-bottom: 20px;
+  }
+
+.form-group-check {
+  display: flex;
+  padding: 20px;
   color: #303F9F;
-  margin-bottom: 20px;
+}
+
+.form-group-check .form-check {
+  margin-right: 20px;
 }
 
 .wrap {
   width: 90%;
-  max-width: 800px;
+  max-width: 780px;
   padding: 40px;
   margin: auto;
   background: #fff;
@@ -35,7 +46,7 @@ h3{
       margin-bottom: 32px; }
       .contenedor-formulario .formulario .form-group input[type="text"],
       .contenedor-formulario .formulario .form-group input[type="tel"],
-      .contenedor-formulario .formulario .form-group input[type="time"] {
+      .contenedor-formulario .formulario .form-group input[type="number"] {
         font-family: "Roboto";
         font-size: 16px;
         color: #303F9F;
@@ -47,16 +58,16 @@ h3{
         border-bottom: 2px solid #BBDEFB; }
         .contenedor-formulario .formulario .form-group input[type="text"]:focus, .contenedor-formulario .formulario .input-group input[type="text"]:active,
         .contenedor-formulario .formulario .form-group input[type="tel"]:focus,
-        .contenedor-formulario .formulario .form-group input[type="time"]:active {
+        .contenedor-formulario .formulario .form-group input[type="tel"]:active {
           outline: none;
           border-bottom: 2px solid #303F9F; }
         .contenedor-formulario .formulario .form-group input[type="text"].error,
         .contenedor-formulario .formulario .form-group input[type="tel"].error,
-        .contenedor-formulario .formulario .form-group input[type="time"].error {
+        .contenedor-formulario .formulario .form-group input[type="number"].error {
           border-bottom: 2px solid #D32F2F; }
           .contenedor-formulario .formulario .form-group input[type="text"].error + label,
           .contenedor-formulario .formulario .form-group input[type="tel"].error + label,
-          .contenedor-formulario .formulario .form-group input[type="time"].error + label {
+          .contenedor-formulario .formulario .form-group input[type="number"].error + label {
             color: #D32F2F; }
       .contenedor-formulario .formulario .form-group label {
         color: #303F9F; }
@@ -81,7 +92,9 @@ h3{
           background: rgba(211, 47, 47, 0.2); }
         .contenedor-formulario .formulario .input-group.error label:before {
           border: 2px solid #D32F2F; }
-    .contenedor-formulario .formulario button{
+      .contenedor-formulario .formulario .form-check-label label:before {
+        border-radius: 3px; }
+    .contenedor-formulario .formulario button {
       background: #303F9F;
       border-radius: 1px;
       border: 2px solid #f2f2f2;
