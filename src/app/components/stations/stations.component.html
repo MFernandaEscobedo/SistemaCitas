@@ -1,0 +1,23 @@
+<div class="container m-5">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Sucursal</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Hora Apertura</th>
+        <th scope="col">Hora Clausura</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let station of stations">
+        <th scope="row">{{ station.id }}</th>
+        <td>{{ station.address }}</td>
+        <td>{{ station.phone }}</td>
+        <td>{{ station.openHour }} am</td>
+        <td>{{ station.closeHour }} pm</td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="goBack()" type="submit" class="btn btn-danger">Regresar</button>
+</div>

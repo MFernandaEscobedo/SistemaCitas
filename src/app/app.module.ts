@@ -12,6 +12,7 @@ import { StationComponent } from './components/station/station.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { VisitasComponent } from './components/visitas/visitas.component';
+import { StationsComponent } from './components/stations/stations.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { VisitasComponent } from './components/visitas/visitas.component';
     StationComponent,
     NavbarComponent,
     AdminComponent,
-    VisitasComponent
+    VisitasComponent,
+    StationsComponent
   ],
   imports: [
     BrowserModule,

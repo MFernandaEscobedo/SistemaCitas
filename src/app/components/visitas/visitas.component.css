@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f2f2f2;
+  font-family: "Roboto";
+  border-top: 30px solid #303F9F; }
+
+  h3{
+    color: #303F9F;
+    margin-bottom: 20px;
+    position: relative;
+    left: 40%;
+  }
+
+.wrap {
+  width: 90%;
+  max-width: 800px;
+  padding: 40px;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0px 0px 3px grey; }
+
+.contenedor-formulario {
+  width: 100%;
+  color: #f2f2f2;
+  padding: 10px; }
+  .contenedor-formulario .formulario {
+    width: 100%;
+    margin: auto; }
+    .contenedor-formulario .formulario .form-group {
+      position: relative;
+      margin-bottom: 5px; }
+      .contenedor-formulario .formulario .form-group input[type="text"],
+      .contenedor-formulario .formulario .form-group input[type="tel"],
+      .contenedor-formulario .formulario .form-group input[type="email"] {
+        font-family: "Roboto";
+        font-size: 14px;
+        color: #303F9F;
+        width: 100%;
+        outline: none;
+        height: 30px;
+        padding: 5px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #BBDEFB; }
+        .contenedor-formulario .formulario .form-group input[type="text"]:focus, .contenedor-formulario .formulario .input-group input[type="text"]:active,
+        .contenedor-formulario .formulario .form-group input[type="tel"]:focus,
+        .contenedor-formulario .formulario .form-group input[type="tel"]:active {
+          outline: none;
+          border-bottom: 2px solid #303F9F; }
+      .contenedor-formulario .formulario .form-group label {
+        color: #303F9F; }
+
+    .contenedor-formulario .formulario button {
+      background: #303F9F;
+      border-radius: 1px;
+      border: 2px solid #f2f2f2;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Roboto";
+      font-size: 14px;
+      height: 50px;
+      width: 100%;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      .contenedor-formulario .formulario button:hover {
+      background: #1976D2; }

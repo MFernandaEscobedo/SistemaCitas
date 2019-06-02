@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseService } from 'src/app/services/base.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-station',
@@ -24,7 +25,7 @@ export class StationComponent implements OnInit {
 
   estaciones = [];
 
-  constructor(private baseService: BaseService<any>) { }
+  constructor(private baseService: BaseService<any>, private location: Location) { }
 
   ngOnInit() {
   }
@@ -34,9 +35,14 @@ export class StationComponent implements OnInit {
         .subscribe(data => {
           console.log(data.entity);
           this.estaciones.push(data.entity);
+
         }, err => {
           console.log(err);
         });
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }
