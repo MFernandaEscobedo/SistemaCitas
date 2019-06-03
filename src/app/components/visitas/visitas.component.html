@@ -1,3 +1,18 @@
+<script>
+  $(function() {
+    $('.dp-date').datepicker({
+      language: 'es',
+      format: "dd/mm/yyyy",
+      calendarWeeks: true,
+      autoclose: true,
+      todayHighlight: true,
+      weekStart: 1
+    });
+  });
+
+</script>
+
+
 <div class="container m-5 contenedor-formulario">
   <div class="wrap">
     <h3>Visitas</h3>
@@ -6,47 +21,57 @@
         <label for="inputNombre">Nombre Completo</label>
         <input type="text" class="form-control" id="inputNombre" placeholder="Nombre y Apellidos">
       </div>
+      <div class="form-group">
+        <label for="inputEmail4">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="email@email.com">
+      </div>
       <div class="form-row">
-        <div class="form-group col-md-5">
+        <div class="form-group col-md-3">
           <label for="inputStation">Estación</label>
-          <select id="inputStation" class="form-control">
-            <option selected>Choose...</option>
-            <option>...</option>
+          <select id="inputStation" class="form-control" >
+            <option selected>...</option>
+            <option *ngFor="let station of stations">{{ station.address }}</option>
           </select>
         </div>
-        <div class="form-group col-md-7">
-          <label for="inputEmail4">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="email@email.com">
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputAddress">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-      </div>
-      <div class="form-group">
-        <label for="inputAddress2">Address 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        <div class="form-group col-md-3">
+            <label for="inputTelefono">Teléfono</label>
+            <input type="text" class="form-control" id="inputTelefono" placeholder="000-000-0000">
+          </div>
       </div>
       <div class="form-row">
+        <div class="input-group date dp-date form-group col-md-5" data-provide="datepicker">
+          <label for="inputDate">Fecha</label>
+            <input type="text" class="form-control" id="inputDate" data-date-format="dd/mm/yyyy">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+        </div>
+        <div class="form-group col-md-5">
+          <label for="inputStation">Horarios</label>
+          <select id="inputStation" class="form-control" >
+            <option selected>...</option>
+            <option *ngFor="let station of stations"></option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row citaSeleccionada">
         <div class="form-group col-md-6">
-          <label for="inputCity">City</label>
-          <input type="text" class="form-control" id="inputCity">
+          <label for="inputFechaSeleccionada">Fecha Seleccionada</label>
+          <input type="text" class="form-control" id="inputFechaSeleccionada">
         </div>
 
-        <div class="form-group col-md-2">
-          <label for="inputZip">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
+        <div class="form-group col-md-6">
+          <label for="inputHoraSeleccionada">Hora Seleccionada</label>
+          <input type="text" class="form-control" id="inputHoraSeleccionada">
         </div>
       </div>
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Check me out
-          </label>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Sign in</button>
+      <button type="submit" class="btn btn-primary">Agendar</button>
     </form>
     </div>
 </div>
+
+

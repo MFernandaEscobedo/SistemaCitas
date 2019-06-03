@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseService } from 'src/app/services/base.service';
 
 @Component({
   selector: 'app-visitas',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitasComponent implements OnInit {
 
-  constructor() { }
+  stations = [];
+  public stationSelected;
+
+  constructor(private baseService: BaseService<any>) { }
 
   ngOnInit() {
+    this.baseService.get('http://localhost:3000/api/Stations')
+      .subscribe(stations => {
+        console.log(stations.entity);
+        this.stations = stations.entity;
+      });
+
   }
 
 }
