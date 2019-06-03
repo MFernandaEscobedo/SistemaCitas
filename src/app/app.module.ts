@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 // Services
 import { BaseService } from './services/base.service';
 
+// Components
+import { NgDatepickerModule } from 'ng2-datepicker';
+
 import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +30,8 @@ import { StationsComponent } from './components/stations/stations.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgDatepickerModule
   ],
   providers: [BaseService],
   bootstrap: [AppComponent]

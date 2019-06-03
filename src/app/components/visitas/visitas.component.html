@@ -1,17 +1,3 @@
-<script>
-  $(function() {
-    $('.dp-date').datepicker({
-      language: 'es',
-      format: "dd/mm/yyyy",
-      calendarWeeks: true,
-      autoclose: true,
-      todayHighlight: true,
-      weekStart: 1
-    });
-  });
-
-</script>
-
 
 <div class="container m-5 contenedor-formulario">
   <div class="wrap">
@@ -19,7 +5,7 @@
     <form class="formulario">
       <div class="form-group">
         <label for="inputNombre">Nombre Completo</label>
-        <input type="text" class="form-control" id="inputNombre" placeholder="Nombre y Apellidos">
+        <input [(ngModel)]="newVisit.fullName" name="fullName" type="text" class="form-control" id="inputNombre" placeholder="Nombre y Apellidos">
       </div>
       <div class="form-group">
         <label for="inputEmail4">Email</label>
@@ -28,9 +14,9 @@
       <div class="form-row">
         <div class="form-group col-md-3">
           <label for="inputStation">Estación</label>
-          <select id="inputStation" class="form-control" >
+          <select id="inputStation" class="form-control" id="selectStation" (change)="changeStation($event)">
             <option selected>...</option>
-            <option *ngFor="let station of stations">{{ station.address }}</option>
+            <option *ngFor="let station of stations" value="">{{ station.address }}</option>
           </select>
         </div>
         <div class="form-group col-md-6">
@@ -43,12 +29,13 @@
           </div>
       </div>
       <div class="form-row">
-        <div class="input-group date dp-date form-group col-md-5" data-provide="datepicker">
-          <label for="inputDate">Fecha</label>
-            <input type="text" class="form-control" id="inputDate" data-date-format="dd/mm/yyyy">
+        <div class="input-group date form-group col-md-5 divFecha">
+          <label for="inputDate" id="labelFecha">Fecha</label>
+          <ng-datepicker [(ngModel)]="inputDateSelected" name="fechaSeleccionada" position="top-right" [options]="options"></ng-datepicker>
+            <!-- <input #inputDate type="text" class="form-control" id="inputDate" (change)="getDate($event)">
             <div class="input-group-addon">
                 <span class="glyphicon glyphicon-th"><i class="glyphicon glyphicon-th"></i></span>
-            </div>
+            </div> -->
         </div>
         <div class="form-group col-md-5">
           <label for="inputStation">Horarios</label>
@@ -61,7 +48,9 @@
       <div class="form-row citaSeleccionada">
         <div class="form-group col-md-6">
           <label for="inputFechaSeleccionada">Fecha Seleccionada</label>
-          <input type="text" class="form-control" id="inputFechaSeleccionada">
+          <hr>
+          <label id="inputFechaSeleccionada">{{ inputDateSelected | date:'MMM dd,yyyy' }}</label>
+          <label id="inputFechaSeleccionada">{{ inputDateSelected }}</label>
         </div>
 
         <div class="form-group col-md-6">

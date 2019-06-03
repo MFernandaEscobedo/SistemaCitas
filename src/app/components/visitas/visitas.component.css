@@ -76,3 +76,16 @@ body {
     .citaSeleccionada{
       border: 2px solid #303F9F;
     }
+
+#inputFechaSeleccionada{
+  padding: 10px;
+  font-size: 16px;
+}
+
+#labelFecha{
+  padding: 10px;
+}
+
+.divFecha{
+  display: block;
+}

@@ -4,11 +4,11 @@
     <form #stationForm="ngForm" class="formulario">
       <div class="form-group">
         <label for="inputDirreccion">Dirección</label>
-        <input [(ngModel)]="nuevaEstacion.address" type="text" class="form-control" name="direccion" id="inputDireccion" placeholder="Dirección">
+        <input required [(ngModel)]="nuevaEstacion.address" type="text" class="form-control" name="direccion" id="inputDireccion" placeholder="Dirección">
       </div>
       <div class="form-group">
         <label for="inputTelefono">Teléfono</label>
-        <input [(ngModel)]="nuevaEstacion.phone" type="tel" class="form-control" name="telefono" id="inputTelefono" placeholder="Teléfono">
+        <input required [(ngModel)]="nuevaEstacion.phone" type="tel" class="form-control" name="telefono" id="inputTelefono" placeholder="Teléfono">
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
