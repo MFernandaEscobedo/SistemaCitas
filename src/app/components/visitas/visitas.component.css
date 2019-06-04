@@ -36,9 +36,12 @@ body {
     .contenedor-formulario .formulario .form-group {
       position: relative;
       margin-bottom: 5px; }
+      #inputStation{
+        margin-bottom: 12px;
+      }
       .contenedor-formulario .formulario .form-group input[type="text"],
       .contenedor-formulario .formulario .form-group input[type="tel"],
-      .contenedor-formulario .formulario .form-group input[type="email"], select {
+      .contenedor-formulario .formulario .form-group input[type="email"], select, .Calendar {
         font-family: "Roboto";
         font-size: 14px;
         color: #303F9F;
@@ -55,7 +58,8 @@ body {
           outline: none;
           border-bottom: 2px solid #303F9F; }
       .contenedor-formulario .formulario .form-group label {
-        color: #303F9F; }
+        color: #303F9F;
+        display: block; }
 
     .contenedor-formulario .formulario button {
       background: #303F9F;
@@ -78,17 +82,19 @@ body {
       margin-bottom: 10px;
     }
 
-#inputFechaSeleccionada{
+#inputFechaSeleccionada, #horaSeleccionada{
   padding: 10px;
   font-size: 16px;
 }
 
-#labelFecha{
-  padding: 10px;
+#labelStation{
+  margin-bottom: 12px;
 }
 
-.Calendar{
-  color: #303F9F;
-  cursor: pointer;
-  display: inline;
+.error{
+  color: red;
 }
+
+
+
+

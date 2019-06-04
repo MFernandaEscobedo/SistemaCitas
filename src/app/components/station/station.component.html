@@ -3,21 +3,33 @@
     <h3 class=" text-center">Estación</h3>
     <form #stationForm="ngForm" class="formulario">
       <div class="form-group">
-        <label for="inputDirreccion">Dirección</label>
-        <input required [(ngModel)]="nuevaEstacion.address" type="text" class="form-control" name="direccion" id="inputDireccion" placeholder="Dirección">
+        <label for="inputDireccion">Dirección</label>
+        <input [(ngModel)]="nuevaEstacion.address" type="text" #inputDireccion="ngModel" class="form-control" required name="direccion" id="inputDireccion" placeholder="Dirección">
+      </div>
+      <div *ngIf="inputDireccion.touched && !inputDireccion.valid" class="error">
+        <label class="error">Dirección requerida</label>
       </div>
       <div class="form-group">
         <label for="inputTelefono">Teléfono</label>
-        <input required [(ngModel)]="nuevaEstacion.phone" type="tel" class="form-control" name="telefono" id="inputTelefono" placeholder="Teléfono">
+        <input [(ngModel)]="nuevaEstacion.phone" type="tel" #inputTelefono="ngModel" class="form-control" required name="telefono" id="inputTelefono" placeholder="Teléfono">
+      </div>
+      <div *ngIf="inputTelefono.touched && !inputTelefono.valid" class="error">
+        <label class="error">Teléfono requerido</label>
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="inputHoraApertura">Hora de apertura</label>
-          <input [(ngModel)]="nuevaEstacion.openHour" type="number" name="horaApertura" class="form-control" id="inputHoraApertura">
+          <input [(ngModel)]="nuevaEstacion.openHour" #horaApertura="ngModel" type="number" required name="horaApertura" class="form-control" id="inputHoraApertura">
+        </div>
+        <div *ngIf="horaApertura.touched && horaApertura == null" class="error">
+          <label class="error">Hora requerida</label>
         </div>
         <div class="form-group col-md-4">
           <label for="inputHoraClausura">Hora de cerrar</label>
-          <input [(ngModel)]="nuevaEstacion.closeHour" type="number" name="HoraClausura" class="form-control" id="inputHoraClausura">
+          <input [(ngModel)]="nuevaEstacion.closeHour" #horaCerrar="ngModel" type="number" required name="HoraClausura" class="form-control" id="inputHoraClausura">
+        </div>
+        <div *ngIf="horaCerrar.touched && !horaCerrar.valid" class="error">
+          <label class="error">Hora requerida</label>
         </div>
         <div class="form-check-inline">
           <div class="form-group-check">
@@ -70,7 +82,7 @@
     </form>
   </div>
 
-  <div class="container m-5">
+  <div class="container m-2">
       <button (click)="goBack()" class="btn btn-danger">Regresar</button>
   </div>
 

@@ -118,5 +118,9 @@ body {
 .btn-danger{
   padding: 0px 10px;
   position: absolute;
-  left: 40%;
+  left: 45%;
+}
+
+.error{
+  color: red;
 }

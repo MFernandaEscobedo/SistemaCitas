@@ -5,42 +5,52 @@
     <form class="formulario">
       <div class="form-group">
         <label for="inputNombre">Nombre Completo</label>
-        <input [(ngModel)]="newVisit.fullName" name="fullName" type="text" class="form-control" id="inputNombre" placeholder="Nombre y Apellidos">
+        <input [(ngModel)]="newVisit.fullName" #nombre="ngModel" required name="fullName" type="text" class="form-control" id="inputNombre" placeholder="Nombre y Apellidos">
+      </div>
+      <div *ngIf="nombre.touched && !nombre.valid" class="error">
+        <label class="error">Nombre requerido</label>
       </div>
       <div class="form-group">
         <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="email@email.com">
+        <input [(ngModel)]="newVisit.email" type="email" class="form-control" #inputEmail="ngModel" required name="email" id="inputEmail4" placeholder="email@email.com">
+      </div>
+      <div *ngIf="inputEmail.touched && !inputEmail.valid" class="error">
+        <label class="error">Email requerido</label>
       </div>
       <div class="form-row">
         <div class="form-group col-md-3">
-          <label for="inputStation">Estación</label>
-          <select id="inputStation" class="form-control" id="selectStation" (change)="changeStation($event)">
+          <label for="inputStation" id="labelStation">Estación</label>
+          <select [(ngModel)]="newVisit.stationId" #station="ngModel" name="station" class="form-control" id="selectStation" (change)="changeStation($event)" (change)="getInvalidDays($event)" (change)="getSchedule($event)">
             <option selected>...</option>
             <option *ngFor="let station of stations" value="">{{ station.address }}</option>
           </select>
         </div>
+        <div *ngIf="station.touched && !station.valid" class="error">
+          <label class="error">Escoja una estación</label>
+        </div>
         <div class="form-group col-md-6">
           <label for="inputAddress">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+          <input readonly type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
         </div>
         <div class="form-group col-md-3">
             <label for="inputTelefono">Teléfono</label>
-            <input type="text" class="form-control" id="inputTelefono" placeholder="000-000-0000">
+            <input readonly type="text" class="form-control" id="inputTelefono" placeholder="000-000-0000">
           </div>
       </div>
+
       <div class="form-row">
-        <div class="form-group ui-calendar ui-g-12 ui-md-4">
+        <div class="form-group col-md-6 ui-calendar ui-g-12 ui-md-4">
           <label for="inputDate" id="labelFecha">Fecha</label>
           <!-- <ng-datepicker [(ngModel)]="inputDateSelected" name="fechaSeleccionada" position="top-right" [options]="options"></ng-datepicker> -->
           <div class="ui-g-12 ui-md-4 form-group">
-              <p-calendar [(ngModel)]="inputDateSelected" [locale]="es" dateFormat="dd/mm/yy" name="Calendar" class="form-group Calendar"></p-calendar>
+              <p-calendar [(ngModel)]="inputDateSelected" [(ngModel)]="newVisit.fullDate" [locale]="es" [disabledDays]="invalidDays" dateFormat="dd/MM/yy" aria-required="form" name="Calendar" class="form-group Calendar"></p-calendar>
           </div>
         </div>
         <div class="form-group col-md-5">
           <label for="inputStation">Horarios</label>
-          <select id="inputStation" class="form-control" >
+          <select [(ngModel)]="hourSelected" required name="schedule" id="inputStation" class="form-control" >
             <option selected>...</option>
-            <option *ngFor="let station of stations"></option>
+            <option *ngFor="let hour of hours">{{ hour }}</option>
           </select>
         </div>
       </div>
@@ -54,15 +64,15 @@
 
         <div class="form-group col-md-6">
           <label for="inputHoraSeleccionada">Hora Seleccionada</label>
-          <input type="text" class="form-control" id="inputHoraSeleccionada">
+          <hr>
+          <label id="horaSeleccionada">{{ hourSelected }}</label>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Agendar</button>
+      <button type="submit" class="btn btn-primary" (click)="addVisit()">Agendar</button>
     </form>
     </div>
 </div>
 
-<div class="container">
 
 
 

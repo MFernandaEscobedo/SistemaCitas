@@ -1,9 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BaseService } from 'src/app/services/base.service';
-import { DatepickerOptions } from 'ng2-datepicker';
-import * as esLocale from 'date-fns/locale/es';
-
-import {CalendarModule} from 'primeng/calendar';
 
 @Component({
   selector: 'app-visitas',
@@ -14,27 +10,18 @@ export class VisitasComponent implements OnInit {
 
   stations = [];
   public stationSelected;
-  public addressStationSelected;
 
   public inputDateSelected;
+  public hourSelected;
   public optionStation;
   public inputAddress;
   public inputPhone;
-
-  options: DatepickerOptions = {
-    firstCalendarDay: 1,
-    minDate: new Date('2019-06-01'),
-    displayFormat: 'DD/MM/YYYY',
-    barTitleIfEmpty: 'Selecciona una fecha',
-    placeholder: 'Selecciona una fecha',
-    locale: esLocale
-  };
 
   newVisit = {
     fullName: '',
     stationId: null,
     email: '',
-    fullDate: null,
+    fullDate: '',
     year: null,
     month: null,
     day: null,
@@ -45,6 +32,8 @@ export class VisitasComponent implements OnInit {
   visits = [];
 
   es: any;
+  invalidDays = [];
+  hours = [];
 
   constructor(private baseService: BaseService<any>) {
   }
@@ -60,7 +49,7 @@ export class VisitasComponent implements OnInit {
       monthNamesShort: [ "ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic" ],
       today: 'Hoy',
       clear: 'Borrar'
-  };
+    };
 
     this.optionStation = document.getElementById('selectStation');
     this.inputAddress = document.getElementById('inputAddress');
@@ -78,16 +67,79 @@ export class VisitasComponent implements OnInit {
     console.log(this.stationSelected);
     this.inputAddress.value = this.stationSelected['address'];
     this.inputPhone.value = this.stationSelected['phone'];
+
+    this.newVisit.stationId = this.stationSelected.id;
   }
 
   addVisit() {
-    this.baseService.post('http://localhost:3000/api/Visits', this.newVisit)
+    const date = new Date(this.inputDateSelected);
+    this.newVisit.year = date.getFullYear();
+    this.newVisit.month = date.getMonth() + 1 ;
+    this.newVisit.day = date.getDate();
+
+    console.log(this.newVisit);
+
+    /* this.baseService.post('http://localhost:3000/api/Visits', this.newVisit)
       .subscribe(visit => {
         console.log(visit.entity);
         this.stations.push(visit.entity);
       }, error => {
         console.log(error);
-      });
+      }); */
+  }
+
+  getInvalidDays(event) {
+    const previewStation = this.stations[0];
+
+    if (previewStation.address !== this.stationSelected.address) {
+      this.invalidDays.splice(0, 10);
+    }
+
+    if (this.stationSelected.monday === false) {
+      this.invalidDays.push(1);
+    }
+    if (this.stationSelected.tuesday === false) {
+      this.invalidDays.push(2);
+    }
+    if (this.stationSelected.wednesday === false) {
+      this.invalidDays.push(3);
+    }
+    if (this.stationSelected.thursday === false) {
+      this.invalidDays.push(4);
+    }
+    if (this.stationSelected.friday === false) {
+      this.invalidDays.push(5);
+    }
+    if (this.stationSelected.saturday === false) {
+      this.invalidDays.push(6);
+    }
+    if (this.stationSelected.sunday === false) {
+      this.invalidDays.push(0);
+    }
+    console.log(this.invalidDays);
+  }
+
+  getSchedule(event) {
+
+    let minutes = 0;
+    let openHour: number = this.stationSelected.openHour;
+    let closeHour: number = this.stationSelected.closeHour;
+
+    const previewStation = this.stations[0];
+
+    if (previewStation.address !== this.stationSelected.address) {
+      this.hours.splice(0, 20);
+    }
+
+    console.log(openHour);
+    console.log(closeHour);
+
+    for (let i = openHour; i <= closeHour; i++) {
+      this.hours.push(openHour + ':' + minutes);
+      minutes += 20;
+    }
+
+    console.log(this.hours);
   }
 
 }

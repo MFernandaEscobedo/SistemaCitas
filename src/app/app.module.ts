@@ -6,12 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Services
 import { BaseService } from './services/base.service';
 
-// Components
+// Modulos
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { CalendarModule } from 'primeng/calendar';
 
 import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+
+// Componentes
 import { AppComponent } from './app.component';
 import { StationComponent } from './components/station/station.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
