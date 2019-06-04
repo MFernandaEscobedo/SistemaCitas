@@ -135,8 +135,10 @@ export class VisitasComponent implements OnInit {
     console.log(closeHour);
 
     for (let i = openHour; i <= closeHour; i++) {
-      this.hours.push(openHour + ':' + minutes);
-      minutes += 20;
+      for (let x = 0; x <= 3; x++) {
+        this.hours.push((openHour + i) + ':' + minutes);
+        minutes += 20;
+      }
     }
 
     console.log(this.hours);
