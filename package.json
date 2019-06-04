@@ -23,6 +23,8 @@
     "jquery": "^3.4.1",
     "ng2-date-picker": "^2.11.0",
     "ng2-datepicker": "^3.1.1",
+    "primeicons": "^1.0.0",
+    "primeng": "^8.0.0-rc.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"

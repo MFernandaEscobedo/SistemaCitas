@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Services
 import { BaseService } from './services/base.service';
 
 // Components
 import { NgDatepickerModule } from 'ng2-datepicker';
+import { CalendarModule } from 'primeng/calendar';
 
 import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,7 +33,10 @@ import { StationsComponent } from './components/stations/stations.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgDatepickerModule
+    NgDatepickerModule,
+    CalendarModule,
+    BrowserAnimationsModule,
+    BrowserModule
   ],
   providers: [BaseService],
   bootstrap: [AppComponent]

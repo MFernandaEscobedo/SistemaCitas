@@ -3,6 +3,8 @@ import { BaseService } from 'src/app/services/base.service';
 import { DatepickerOptions } from 'ng2-datepicker';
 import * as esLocale from 'date-fns/locale/es';
 
+import {CalendarModule} from 'primeng/calendar';
+
 @Component({
   selector: 'app-visitas',
   templateUrl: './visitas.component.html',
@@ -42,10 +44,24 @@ export class VisitasComponent implements OnInit {
 
   visits = [];
 
+  es: any;
+
   constructor(private baseService: BaseService<any>) {
   }
 
   ngOnInit() {
+
+    this.es = {
+      firstDayOfWeek: 1,
+      dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
+      dayNamesShort: [ "dom","lun","mar","mié","jue","vie","sáb" ],
+      dayNamesMin: [ "D","L","M","X","J","V","S" ],
+      monthNames: [ "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre" ],
+      monthNamesShort: [ "ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic" ],
+      today: 'Hoy',
+      clear: 'Borrar'
+  };
+
     this.optionStation = document.getElementById('selectStation');
     this.inputAddress = document.getElementById('inputAddress');
     this.inputPhone = document.getElementById('inputTelefono');
@@ -75,3 +91,4 @@ export class VisitasComponent implements OnInit {
   }
 
 }
+

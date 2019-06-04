@@ -29,13 +29,12 @@
           </div>
       </div>
       <div class="form-row">
-        <div class="input-group date form-group col-md-5 divFecha">
+        <div class="form-group ui-calendar ui-g-12 ui-md-4">
           <label for="inputDate" id="labelFecha">Fecha</label>
-          <ng-datepicker [(ngModel)]="inputDateSelected" name="fechaSeleccionada" position="top-right" [options]="options"></ng-datepicker>
-            <!-- <input #inputDate type="text" class="form-control" id="inputDate" (change)="getDate($event)">
-            <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"><i class="glyphicon glyphicon-th"></i></span>
-            </div> -->
+          <!-- <ng-datepicker [(ngModel)]="inputDateSelected" name="fechaSeleccionada" position="top-right" [options]="options"></ng-datepicker> -->
+          <div class="ui-g-12 ui-md-4 form-group">
+              <p-calendar [(ngModel)]="inputDateSelected" [locale]="es" dateFormat="dd/mm/yy" name="Calendar" class="form-group Calendar"></p-calendar>
+          </div>
         </div>
         <div class="form-group col-md-5">
           <label for="inputStation">Horarios</label>
@@ -50,7 +49,7 @@
           <label for="inputFechaSeleccionada">Fecha Seleccionada</label>
           <hr>
           <label id="inputFechaSeleccionada">{{ inputDateSelected | date:'MMM dd,yyyy' }}</label>
-          <label id="inputFechaSeleccionada">{{ inputDateSelected }}</label>
+          <!-- <label id="inputFechaSeleccionada">{{ inputDateSelected }}</label> -->
         </div>
 
         <div class="form-group col-md-6">
@@ -62,5 +61,8 @@
     </form>
     </div>
 </div>
+
+<div class="container">
+
 
 
