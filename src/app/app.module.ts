@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Services
@@ -20,6 +20,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { VisitasComponent } from './components/visitas/visitas.component';
 import { StationsComponent } from './components/stations/stations.component';
+import { VisitasViewComponent } from './components/visitas-view/visitas-view.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,15 @@ import { StationsComponent } from './components/stations/stations.component';
     NavbarComponent,
     AdminComponent,
     VisitasComponent,
-    StationsComponent
+    StationsComponent,
+    VisitasViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgDatepickerModule,
     CalendarModule,
     BrowserAnimationsModule,

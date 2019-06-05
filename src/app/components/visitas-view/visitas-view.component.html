@@ -1,0 +1,25 @@
+<div class="container m-5">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Email</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Estación ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let visit of visits">
+        <th scope="row">{{ visit.id }}</th>
+        <td>{{ visit.fullName}}</td>
+        <td>{{ visit.email }}</td>
+        <td>{{ visit.day }}/{{ visit.month }}/{{ visit.year }}</td>
+        <td>{{ visit.hour }}:{{ visit.minute }}</td>
+        <td>{{ visit.stationId }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="goBack()" type="submit" class="btn btn-danger">Regresar</button>
+</div>

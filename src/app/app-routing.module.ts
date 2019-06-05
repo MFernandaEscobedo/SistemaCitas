@@ -5,13 +5,15 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { VisitasComponent } from './components/visitas/visitas.component';
 import { StationsComponent } from './components/stations/stations.component';
+import { VisitasViewComponent } from './components/visitas-view/visitas-view.component';
 
 const routes: Routes = [
   { path: 'station', component: StationComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'visitas', component: VisitasComponent },
-  { path: 'stations', component: StationsComponent }
+  { path: 'visit', component: VisitasComponent },
+  { path: 'stations', component: StationsComponent },
+  { path: 'visits', component: VisitasViewComponent }
 ];
 
 @NgModule({
