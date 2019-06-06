@@ -12,13 +12,13 @@ export class StationComponent implements OnInit {
   nuevaEstacion = {
     address: '',
     phone: '',
-    monday: '',
-    tuesday: '',
-    wednesday: '',
-    thursday: '',
-    friday: '',
-    saturday: '',
-    sunday: '',
+    monday: false,
+    tuesday: false,
+    wednesday: false,
+    thursday: false,
+    friday: false,
+    saturday: false,
+    sunday: false,
     openHour: null,
     closeHour: null
   };

@@ -1,6 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { BaseService } from 'src/app/services/base.service';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { Observable } from 'rxjs';
+import { resolve } from 'url';
+import { reject } from 'q';
 
 @Component({
   selector: 'app-visitas',
@@ -56,7 +59,7 @@ export class VisitasComponent implements OnInit {
     };
 
     this.myForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email], this.validacionCorreo]
     });
 
     this.optionStation = document.getElementById('selectStation');
@@ -69,6 +72,12 @@ export class VisitasComponent implements OnInit {
         console.log(stations.entity);
         this.stations = stations.entity;
       });
+
+    this.baseService.get('http://localhost:3000/api/Visits')
+    .subscribe(visits => {
+      this.visits = visits.entity;
+      console.log(this.visits);
+    });
   }
 
   get f() { return this.myForm.controls; }
@@ -94,7 +103,7 @@ export class VisitasComponent implements OnInit {
     this.baseService.post('http://localhost:3000/api/Visits', this.newVisit)
       .subscribe(visit => {
         console.log(visit.entity);
-        this.stations.push(visit.entity);
+        this.visits.push(visit.entity);
       }, error => {
         console.log(error);
       });
@@ -165,6 +174,33 @@ export class VisitasComponent implements OnInit {
 
     this.newVisit.hour = parseInt(partsHour[0], 10);
     this.newVisit.minute = parseInt(partsHour[1], 10);
+
+    const pos = this.hours.indexOf(this.hourSelected);
+    this.hours.splice(pos, 1);
+  }
+
+  validacionForm(event) {
+    console.log(this.newVisit.fullName);
+    if (this.newVisit.fullName === null) {
+        alert('Complete todos los campos');
+    }
+  }
+
+  validacionCorreo(control: FormControl): Promise<any> | Observable<any> {
+
+    const promise = new Promise(( resolve, reject ) => {
+
+        setTimeout(() => {
+          if (control.value === this.visits[0].email) {
+            resolve ({ exist: true});
+          } else {
+            resolve (null);
+          }
+        }, 3000);
+
+    });
+
+    return promise;
   }
 
 }

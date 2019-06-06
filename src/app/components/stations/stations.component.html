@@ -7,17 +7,19 @@
         <th scope="col">Teléfono</th>
         <th scope="col">Hora Apertura</th>
         <th scope="col">Hora Clausura</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let station of stations">
+      <tr *ngFor="let station of stations let i = index">
         <th scope="row">{{ station.id }}</th>
         <td>{{ station.address }}</td>
         <td>{{ station.phone }}</td>
         <td>{{ station.openHour }} am</td>
         <td>{{ station.closeHour }} pm</td>
+        <td><button class="btn btn-danger delete" (click)="deleteStation(i)">Eliminar</button></td>
       </tr>
     </tbody>
   </table>
-  <button (click)="goBack()" type="submit" class="btn btn-danger">Regresar</button>
+  <button (click)="goBack()" type="submit" class="btn btn-danger back">Regresar</button>
 </div>

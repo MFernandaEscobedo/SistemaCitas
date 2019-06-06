@@ -16,13 +16,21 @@ export class StationsComponent implements OnInit {
   ngOnInit() {
     this.baseService.get('http://localhost:3000/api/Stations')
         .subscribe(stations => {
-          console.log(stations.entity);
           this.stations = stations.entity;
         }, error => console.log(error));
   }
 
   goBack() {
     this.location.back();
+  }
+
+  deleteStation(index: number) {
+    const id = this.stations[index].id;
+    this.baseService.delete('http://localhost:3000/api/Stations/' + id)
+        .subscribe(station => {
+          console.log(station.entity);
+          this.stations.splice(index, 1);
+        }, error => console.log(error));
   }
 
 }

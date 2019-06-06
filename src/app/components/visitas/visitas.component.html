@@ -2,7 +2,7 @@
 <div class="container m-5 contenedor-formulario">
   <div class="wrap">
     <h3>Visitas</h3>
-    <form class="formulario">
+    <form #visitForm="ngForm" class="formulario">
       <div class="form-group">
         <label for="inputNombre">Nombre Completo</label>
         <input [(ngModel)]="newVisit.fullName" #nombre="ngModel" required name="fullName" type="text" class="form-control" id="inputNombre" placeholder="Nombre y Apellidos">
@@ -15,7 +15,7 @@
           <label for="inputEmail4">Email</label>
           <input [(ngModel)]="newVisit.email" formControlName="email" type="email" class="form-control" required name="email" id="inputEmail4" placeholder="email@email.com">
         </div>
-        <div *ngIf="myForm.get('email').errors" class="error">
+        <div *ngIf="myForm.get('email').errors && myForm.get('email').touched" class="error">
           <label *ngIf="myForm.get('email').hasError('required')" class="error">Email requerido</label>
           <label *ngIf="myForm.get('email').hasError('email')" class="error">Formato de email no aceptado</label>
         </div>
@@ -23,7 +23,7 @@
       <div class="form-row">
         <div class="form-group col-md-3">
           <label for="inputStation" id="labelStation">Estación</label>
-          <select [(ngModel)]="newVisit.stationId" #station="ngModel" name="station" class="form-control" id="selectStation" (change)="changeStation($event)" (change)="getInvalidDays($event)" (change)="getSchedule($event)">
+          <select [(ngModel)]="newVisit.stationId" #station="ngModel" name="station" class="form-control" id="selectStation" (change)="changeStation($event); getInvalidDays($event); getSchedule($event)">
             <option selected>...</option>
             <option *ngFor="let station of stations" value="">{{ station.address }}</option>
           </select>
@@ -71,10 +71,12 @@
           <label id="horaSeleccionada">{{ hourSelected }}</label>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" (click)="addVisit()">Agendar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" (click)="addVisit(); visitForm.reset() ">Agendar</button>
     </form>
     </div>
 </div>
+
+{{ myForm.status }}
 
 
 
