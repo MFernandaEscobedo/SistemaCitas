@@ -59,7 +59,7 @@ export class VisitasComponent implements OnInit {
     };
 
     this.myForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email], this.validacionCorreo]
+      email: ['', [Validators.required, Validators.email]]
     });
 
     this.optionStation = document.getElementById('selectStation');
@@ -186,7 +186,7 @@ export class VisitasComponent implements OnInit {
     }
   }
 
-  validacionCorreo(control: FormControl): Promise<any> | Observable<any> {
+  /* validacionCorreo(control: FormControl): Promise<any> | Observable<any> {
 
     const promise = new Promise(( resolve, reject ) => {
 
@@ -201,7 +201,7 @@ export class VisitasComponent implements OnInit {
     });
 
     return promise;
-  }
+  } */
 
 }
 
